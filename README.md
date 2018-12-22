@@ -249,7 +249,7 @@ define('FTP_HOST','127.0.0.1:22');
 define('FS_METHOD', 'ssh2');
 ```
 
-Now go back to WordPress and install "Redis Object Cache", and activate it.
+Now go back to WordPress and install "[Redis Object Cache](https://wordpress.org/plugins/redis-cache/)", and activate it.
 
 ---
 
