@@ -1,6 +1,7 @@
 ## 1. SSH onto the droplet
-ssh root@[ip of the droplet]
+ssh root@[ip of the droplet] 
 
+You can also ssh as a user with `sudo` privileges to run commands as `root`.
 ## 2. Upgrade the new instance
 Since most new instances are created from an image, the software in the image is likely behind so the first thing to do is to update it all.
 `$ apt-get update`
