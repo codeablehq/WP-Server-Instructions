@@ -211,6 +211,7 @@ $ vim example.com.conf
 (virtual hosts need `.conf` extension to be loaded)
 
 Paste the the contents of the [basic Nginx config](nginx/basic.conf) into this file, changes lines [2](nginx/basic.conf#L2) and [7](nginx/basic.conf#L7) to reflect your own domain and reload Nginx: 
+
 `$ service nginx reload`
 
 Visit the domain in your browser to start the WordPress wizard.
@@ -283,7 +284,7 @@ $ chmod -R 775 ./uploads
 
 Now it's time to install WP-Rocket, one of the best caching plugins on the market. Navigate to [WP-Rocket](https://wp-rocket.me/), make an account, buy the plugin and download it. When you try to install it by uploading the file to WordPress, you will most likely get an error `413 Request Entity Too Large`, so fix that next. Go back to the terminal and run the following commands:
 
-`$ vim /etc/php/7.1/fpm/php.ini` and locate the following three directives and set them to whatever you want your max upload size to be:
+`$ vim /etc/php/7.3/fpm/php.ini` and locate the following three directives and set them to whatever you want your max upload size to be:
 ```
 upload_max_filesize = 20M
 post_max_size = 20M
@@ -291,7 +292,7 @@ memory_limit = 256M
 ```
 (the last is not for uploads, but let's increase it while we're at it)
 
-Reload PHP-FPM with `$ service php7.1-fpm reload` and return to WordPress to try installing WP-Rocket again. Upon activation it will complain about a couple of files not being in place and it's unable to write to them, due to our limited permissions. That's why we need to manually create those files.
+Reload PHP-FPM with `$ service php7.3-fpm reload` and return to WordPress to try installing WP-Rocket again. Upon activation it will complain about a couple of files not being in place and it's unable to write to them, due to our limited permissions. That's why we need to manually create those files.
 
 Run these:
 
