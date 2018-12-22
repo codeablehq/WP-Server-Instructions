@@ -64,8 +64,8 @@ $ curl -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 Now we can install PHP and all the dependencies WordPress needs to run:
 $ apt-get update && apt-get install -y \
     imagemagick \
-    php7.1-fpm php7.1-mysqli php7.1-curl php7.1-gd php7.1-geoip php7.1-xml \
-    php7.1-xmlrpc php7.1-imagick php7.1-mbstring php7.1-ssh2 php7.1-redis
+    php7.3-fpm php7.3-mysqli php7.3-curl php7.3-gd php7.3-geoip php7.3-xml \
+    php7.3-xmlrpc php7.3-imagick php7.3-mbstring php-ssh2 php-redis
 ```
 
 ## 8. Update Nginx to work with PHP
@@ -96,14 +96,14 @@ Visit the IP in the browser, only to encounter an error.
 `$ cat /var/log/nginx/error.log` to see what the error is. Expectedly, it can't connect to PHP-FPM, so we need to configure it properly.
 
 ```
-$ cd /etc/php/7.1/fpm
+$ cd /etc/php/7.3/fpm
 $ grep -r "listen" . 
 $ vim ./pool.d/www.conf
 ```
 
 Around line 36, there should be a `listen` directive, which we need to replace with `listen = [::]:9000`.
 
-Now reload PHP-FPM: `$ service php7.1-fpm reload`
+Now reload PHP-FPM: `$ service php7.3-fpm reload`
 
 Visit your browser again, and the `phpinfo();` should be revealed.
 Afterwards, **remove it!!!**
@@ -170,10 +170,10 @@ Then, navigate to the [Release archive](https://wordpress.org/download/release-a
 
 ```
 $ cd /var/www/example.com
-$ wget https://wordpress.org/wordpress-4.8.1.tar.gz
-$ tar -zxf wordpress-4.8.1.tar.gz
+$ wget https://wordpress.org/latest.tar.gz
+$ tar -zxf latest.tar.gz
 $ mv wordpress/* .
-$ rm -rf wordpress wordpress-4.8.1.tar.gz
+$ rm -rf wordpress latest.tar.gz
 ```
 
 Add a user which will be the owner of WordPress files
