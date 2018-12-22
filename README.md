@@ -25,6 +25,7 @@ $ cat /proc/meminfo
 
 ## 5. Install Oh-my-zsh (optional step)
 Oh-my-zsh (and z-shell in general) come with a few niceties that Bash doesn't provide.
+
 `$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
 `$ vim ~/.zshrc` and change the `theme` line to what you want, _blinks_ is nice.
@@ -40,7 +41,7 @@ Visit [http://nginx.org/en/linux_packages.html](Nginx repositories page) to see 
 
 ```
 $ cat /etc/*-release 
-$ echo "deb https://nginx.org/packages/debian/ stretch nginx" > \
+$ echo "deb https://nginx.org/packages/debian/ bionic nginx" > \
   /etc/apt/sources.list.d/nginx.list
 $ curl -vs https://nginx.org/keys/nginx_signing.key | apt-key add -
 $ apt-get update && apt-get install -y nginx
